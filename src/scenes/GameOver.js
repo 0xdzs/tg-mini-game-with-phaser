@@ -23,6 +23,7 @@ export class GameOver extends Scene
                 .setOrigin(0.5);
             
             shareButton.on('pointerdown', () => {
+                // Use Telegram's share popup
                 window.Telegram.WebApp.showPopup({
                     title: 'Share Score',
                     message: `I scored ${score} points in Coin Clicker!`,
@@ -32,7 +33,14 @@ export class GameOver extends Scene
                     ]
                 }, (buttonId) => {
                     if (buttonId === 'share') {
-                        window.Telegram.WebApp.sendMessage(`I scored ${score} points in Coin Clicker! Try to beat my score!`);
+                        // Use ShareButton API instead of sendMessage
+                        window.Telegram.WebApp.openTelegramLink(
+                            `https://t.me/share/url?` + 
+                            new URLSearchParams({
+                                url: window.location.href,
+                                text: `🎮 I scored ${score} points in Coin Clicker! Can you beat my score? Play now!`
+                            }).toString()
+                        );
                     }
                 });
             });
