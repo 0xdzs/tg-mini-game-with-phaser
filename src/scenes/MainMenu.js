@@ -35,7 +35,7 @@ export class MainMenu extends Scene
             'click in 10 seconds?',
             '',
             'Click to Start!',
-            'Github -> Vercel Automation Test'
+            'Github -> Vercel Automation Test Take 2'
         ]
 
         this.add.text(212, 442, instructions, textStyle).setAlign('center').setOrigin(0.5);
