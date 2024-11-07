@@ -34,8 +34,7 @@ export class MainMenu extends Scene
             'How many coins can you',
             'click in 10 seconds?',
             '',
-            'Click to Start!',
-            'Github -> Vercel Automation Test Take 2'
+            'Click to Start!'
         ]
 
         this.add.text(212, 442, instructions, textStyle).setAlign('center').setOrigin(0.5);
