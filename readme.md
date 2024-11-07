@@ -13,6 +13,7 @@ This is a simple coin clicker game. The goal is to click the coin as many times 
 
 TODOs
 - fix the telegram share button
-- automate from github to vercel
+- add the welcome screen to the root scene
+- add more features interact with telegram
 
 ![screenshot](screenshot.png)

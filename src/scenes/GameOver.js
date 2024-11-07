@@ -23,10 +23,18 @@ export class GameOver extends Scene
                 .setOrigin(0.5);
             
             shareButton.on('pointerdown', () => {
-                window.Telegram.WebApp.switchInlineQuery(
-                    `I scored ${score} points in Coin Clicker!`,
-                    ['users', 'groups']
-                );
+                window.Telegram.WebApp.showPopup({
+                    title: 'Share Score',
+                    message: `I scored ${score} points in Coin Clicker!`,
+                    buttons: [
+                        {type: 'default', text: 'Share', id: 'share'},
+                        {type: 'cancel'}
+                    ]
+                }, (buttonId) => {
+                    if (buttonId === 'share') {
+                        window.Telegram.WebApp.sendMessage(`I scored ${score} points in Coin Clicker! Try to beat my score!`);
+                    }
+                });
             });
         }
 
